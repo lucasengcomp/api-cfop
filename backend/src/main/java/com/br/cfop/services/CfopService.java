@@ -5,6 +5,8 @@ import com.br.cfop.entities.Cfop;
 import com.br.cfop.repositories.CfopRepository;
 import com.br.cfop.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,5 +23,11 @@ public class CfopService {
         Optional<Cfop> cfopById = repository.findById(id);
         Cfop entity = cfopById.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado para o id informado"));
         return new CfopDTO(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<CfopDTO> findAllPaged(PageRequest pageRequest) {
+        Page<Cfop> cfops = repository.findAll(pageRequest);
+        return cfops.map(x -> new CfopDTO(x));
     }
 }
