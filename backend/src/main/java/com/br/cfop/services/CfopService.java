@@ -30,4 +30,14 @@ public class CfopService {
         Page<Cfop> cfops = repository.findAll(pageRequest);
         return cfops.map(x -> new CfopDTO(x));
     }
+
+    @Transactional
+    public CfopDTO insert(CfopDTO dto) {
+        Cfop entity = new Cfop();
+        entity.setCfop(dto.getCfop());
+        entity.setDescricao(dto.getDescricao());
+        entity.setGrupo(dto.getGrupo());
+        entity = repository.save(entity);
+        return new CfopDTO(entity);
+    }
 }
