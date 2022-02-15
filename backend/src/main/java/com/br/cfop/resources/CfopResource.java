@@ -2,7 +2,6 @@ package com.br.cfop.resources;
 
 import com.br.cfop.dto.CfopDTO;
 import com.br.cfop.services.CfopService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -45,5 +44,11 @@ public class CfopResource {
                 .path("/{id}")
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<CfopDTO> update(@PathVariable Long id, @RequestBody CfopDTO dto) {
+        dto = service.update(id, dto);
+        return ResponseEntity.ok().body(dto);
     }
 }

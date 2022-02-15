@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 @Service
@@ -34,10 +35,26 @@ public class CfopService {
     @Transactional
     public CfopDTO insert(CfopDTO dto) {
         Cfop entity = new Cfop();
-        entity.setCfop(dto.getCfop());
-        entity.setDescricao(dto.getDescricao());
-        entity.setGrupo(dto.getGrupo());
+        objectsCfop(dto, entity);
         entity = repository.save(entity);
         return new CfopDTO(entity);
+    }
+
+    @Transactional
+    public CfopDTO update(Long id, CfopDTO dto) {
+        try {
+            Cfop entity = repository.getOne(id);
+            objectsCfop(dto, entity);
+            entity = repository.save(entity);
+            return new CfopDTO(entity);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Id " + id + " not found");
+        }
+    }
+
+    private void objectsCfop(CfopDTO dto, Cfop entity) {
+        entity.setCfop(dto.getCfop());
+        entity.setGrupo(dto.getGrupo());
+        entity.setDescricao(dto.getDescricao());
     }
 }
