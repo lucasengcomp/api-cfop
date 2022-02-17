@@ -36,6 +36,12 @@ public class CfopResource {
         return ResponseEntity.ok().body(dto);
     }
 
+    @GetMapping(value = "/cfop/{cfop}")
+    public ResponseEntity<CfopDTO> findByCfop(@PathVariable("cfop") String cfop) {
+        CfopDTO list = service.findByCfop(cfop);
+        return ResponseEntity.ok().body(list);
+    }
+
     @PostMapping
     public ResponseEntity<CfopDTO> insert(@RequestBody CfopDTO dto) {
         dto = service.insert(dto);
