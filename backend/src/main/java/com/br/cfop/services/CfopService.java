@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,7 +28,9 @@ public class CfopService {
 
     @Transactional
     public CfopDTO findByCfop(String cfop) {
-            return repository.findByCfop(cfop);
+        Optional<Cfop> resultCfop = repository.findByCfop(cfop);
+        Cfop entity = resultCfop.orElseThrow(() -> new ResourceNotFoundException("CFOP " + cfop + " não existe"));
+        return new CfopDTO(entity);
     }
 
     @Transactional(readOnly = true)

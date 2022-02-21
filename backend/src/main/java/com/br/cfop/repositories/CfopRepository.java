@@ -1,9 +1,10 @@
 package com.br.cfop.repositories;
 
-import com.br.cfop.dto.CfopDTO;
 import com.br.cfop.entities.Cfop;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface CfopRepository extends JpaRepository<Cfop, Long> {
-    CfopDTO findByCfop(String cfop);
+    Optional<Cfop> findByCfop(String cfop);
 }
