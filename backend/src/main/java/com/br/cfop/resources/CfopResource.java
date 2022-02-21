@@ -22,7 +22,11 @@ public class CfopResource {
     @Autowired
     private CfopService service;
 
-    @ApiOperation(value = "Mostra todos os CFOPs paginados por parâmetros:")
+    @ApiOperation(value = "Mostra todos os CFOPs paginados por parâmetros: " +
+            "Número de página \n" +
+            "Linhas por página \n" +
+            "Ordem crescente ou decrescente \n" +
+            "Ordenado por alguma parâmetro dos campos.")
     @GetMapping
     public ResponseEntity<Page<CfopDTO>> findAllPaged(
             @RequestParam(value = "page", defaultValue = "0") Integer page,
