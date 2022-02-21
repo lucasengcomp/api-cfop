@@ -3,8 +3,11 @@ package com.br.cfop.services;
 import com.br.cfop.dto.CfopDTO;
 import com.br.cfop.entities.Cfop;
 import com.br.cfop.repositories.CfopRepository;
+import com.br.cfop.services.exceptions.DatabaseException;
 import com.br.cfop.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -60,7 +63,13 @@ public class CfopService {
     }
 
     public void deleteById(Long id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException("Id not found: " + id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Integrity violation");
+        }
     }
 
     private void objectsCfop(CfopDTO dto, Cfop entity) {
