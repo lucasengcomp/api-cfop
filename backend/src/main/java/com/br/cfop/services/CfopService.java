@@ -59,6 +59,10 @@ public class CfopService {
         }
     }
 
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
     private void objectsCfop(CfopDTO dto, Cfop entity) {
         entity.setCfop(dto.getCfop());
         entity.setGrupo(dto.getGrupo());
