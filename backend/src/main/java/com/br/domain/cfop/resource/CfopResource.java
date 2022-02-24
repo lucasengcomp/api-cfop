@@ -1,7 +1,7 @@
-package com.br.cfop.resources;
+package com.br.domain.cfop.resource;
 
-import com.br.cfop.dto.CfopDTO;
-import com.br.cfop.services.CfopService;
+import com.br.domain.cfop.dto.CfopDTO;
+import com.br.domain.cfop.service.CfopService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

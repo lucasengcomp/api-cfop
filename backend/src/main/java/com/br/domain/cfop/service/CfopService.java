@@ -1,10 +1,10 @@
-package com.br.cfop.services;
+package com.br.domain.cfop.service;
 
-import com.br.cfop.dto.CfopDTO;
-import com.br.cfop.entities.Cfop;
-import com.br.cfop.repositories.CfopRepository;
-import com.br.cfop.services.exceptions.DatabaseException;
-import com.br.cfop.services.exceptions.ResourceNotFoundException;
+import com.br.domain.cfop.dto.CfopDTO;
+import com.br.domain.cfop.entity.Cfop;
+import com.br.domain.cfop.repository.CfopRepository;
+import com.br.domain.cfop.service.exceptions.DatabaseException;
+import com.br.domain.cfop.service.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;

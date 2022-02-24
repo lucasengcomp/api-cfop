@@ -1,8 +1,8 @@
-package com.br.cfop.resources.exceptions;
+package com.br.domain.cfop.resource.exceptions;
 
 
-import com.br.cfop.services.exceptions.DatabaseException;
-import com.br.cfop.services.exceptions.ResourceNotFoundException;
+import com.br.domain.cfop.service.exceptions.DatabaseException;
+import com.br.domain.cfop.service.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

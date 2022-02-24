@@ -1,6 +1,6 @@
-package com.br.cfop.repositories;
+package com.br.domain.cfop.repository;
 
-import com.br.cfop.entities.Cfop;
+import com.br.domain.cfop.entity.Cfop;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

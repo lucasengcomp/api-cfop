@@ -1,4 +1,4 @@
-package com.br.cfop.resources.exceptions;
+package com.br.domain.cfop.resource.exceptions;
 
 import java.io.Serializable;
 import java.time.Instant;

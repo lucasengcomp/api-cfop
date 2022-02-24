@@ -1,4 +1,4 @@
-package com.br.cfop.entities;
+package com.br.domain.cfop.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

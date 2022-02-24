@@ -1,6 +1,6 @@
-package com.br.cfop.dto;
+package com.br.domain.cfop.dto;
 
-import com.br.cfop.entities.Cfop;
+import com.br.domain.cfop.entity.Cfop;
 
 import java.io.Serializable;
 

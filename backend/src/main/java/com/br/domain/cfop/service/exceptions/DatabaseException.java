@@ -1,4 +1,4 @@
-package com.br.cfop.services.exceptions;
+package com.br.domain.cfop.service.exceptions;
 
 public class DatabaseException extends RuntimeException {
     private static final long serialVersionUID = 1L;
