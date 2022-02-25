@@ -1,8 +1,8 @@
-package com.br.domain.cfop.resource.exceptions;
+package com.br.domain.core.exceptions.resource;
 
 
-import com.br.domain.cfop.service.exceptions.DatabaseException;
-import com.br.domain.cfop.service.exceptions.ResourceNotFoundException;
+import com.br.domain.core.exceptions.service.DatabaseException;
+import com.br.domain.core.exceptions.service.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;
 
-import static com.br.domain.utils.Consts.DATABASE_EXCEPTION;
-import static com.br.domain.utils.Consts.RESOURCE_NOT_FOUND;
+import static com.br.domain.core.consts.Consts.DATABASE_EXCEPTION;
+import static com.br.domain.core.consts.Consts.RESOURCE_NOT_FOUND;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

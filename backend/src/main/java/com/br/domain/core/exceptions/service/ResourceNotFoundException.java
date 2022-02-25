@@ -1,4 +1,4 @@
-package com.br.domain.cfop.service.exceptions;
+package com.br.domain.core.exceptions.service;
 
 public class ResourceNotFoundException extends RuntimeException {
     private static final long serialVersionUID = 1L;

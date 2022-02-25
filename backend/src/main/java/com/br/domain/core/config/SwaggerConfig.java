@@ -1,4 +1,4 @@
-package com.br.domain.config;
+package com.br.domain.core.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

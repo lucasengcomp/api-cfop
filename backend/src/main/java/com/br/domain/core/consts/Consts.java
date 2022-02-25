@@ -1,4 +1,4 @@
-package com.br.domain.utils;
+package com.br.domain.core.consts;
 
 public class Consts {
 
